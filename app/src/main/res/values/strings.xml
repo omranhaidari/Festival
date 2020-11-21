@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Festival</string>
+    <string name="title">Festival</string>
+    <string name="jeudi">Jeudi</string>
+    <string name="vendredi">Vendredi</string>
+    <string name="acoustique">Acoustique</string>
+    <string name="amplifie">Amplifiée</string>
 </resources>
