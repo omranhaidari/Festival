@@ -13,56 +13,90 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="2dp">
 
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="match_parent"
-            android:layout_height="43dp"
-            android:gravity="center"
-            android:text="@string/title" />
-
         <SearchView
             android:id="@+id/searchBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <com.google.android.material.chip.ChipGroup
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="56dp">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="@string/choisir_un_jour" />
 
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chipJeudi"
-                    android:layout_width="51dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/jeudi" />
+            <com.google.android.material.chip.ChipGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:singleSelection="true"
+                app:singleLine="true">
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipVendredi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/vendredi" />
+                    android:text="@string/vendredi"
+                    android:checkable="true"
+                    android:onClick="sort"
+                    android:theme="@style/Theme.MaterialComponents.Light"/>
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipSamedi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/samedi"
+                    android:checkable="true"
+                    android:onClick="sort"
+                    android:theme="@style/Theme.MaterialComponents.Light"/>
+
+            </com.google.android.material.chip.ChipGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="@string/choisir_une_scene" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:singleSelection="true"
+                app:singleLine="true">
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipAcoustique"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/acoustique" />
+                    android:text="@string/acoustique"
+                    android:checkable="true"
+                    android:onClick="sort"
+                    android:theme="@style/Theme.MaterialComponents.Light"/>
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chipAmplifiee"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/amplifie" />
-            </LinearLayout>
-        </com.google.android.material.chip.ChipGroup>
+                    android:text="@string/amplifie"
+                    android:checkable="true"
+                    android:onClick="sort"
+                    android:theme="@style/Theme.MaterialComponents.Light"/>
+
+            </com.google.android.material.chip.ChipGroup>
+        </LinearLayout>
 
         <ListView
             android:id="@+id/listViewGroups"

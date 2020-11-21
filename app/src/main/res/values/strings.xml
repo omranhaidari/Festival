@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name">Festival</string>
     <string name="title">Festival</string>
-    <string name="jeudi">Jeudi</string>
     <string name="vendredi">Vendredi</string>
+    <string name="samedi">Samedi</string>
     <string name="acoustique">Acoustique</string>
     <string name="amplifie">Amplifiée</string>
+    <string name="choisir_un_jour">Choisir un jour :</string>
+    <string name="choisir_une_scene">Choisir une scène :</string>
 </resources>

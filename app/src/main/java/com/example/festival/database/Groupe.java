@@ -25,4 +25,36 @@ public class Groupe extends SugarRecord {
         this.siteWeb = siteWeb;
         this.estFavori = estFavori;
     }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public String getJour() {
+        return jour;
+    }
+
+    public String getScene() {
+        return scene;
+    }
+
+    public String getHoraire() {
+        return horaire;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getSiteWeb() {
+        return siteWeb;
+    }
+
+    public boolean estFavori() {
+        return estFavori;
+    }
 }
