@@ -16,7 +16,9 @@
         <SearchView
             android:id="@+id/searchBar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:queryHint="Rechercher..."
+            android:iconifiedByDefault="false" />
 
         <LinearLayout
             android:layout_width="match_parent"

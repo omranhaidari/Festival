@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Festival</string>
-    <string name="title">Festival</string>
+    <string name="titleProgressBar">Festival du MIAGE</string>
     <string name="vendredi">Vendredi</string>
     <string name="samedi">Samedi</string>
     <string name="acoustique">Acoustique</string>
