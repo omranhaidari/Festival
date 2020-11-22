@@ -8,7 +8,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.codesgood.views.JustifiedTextView;
 import com.example.festival.database.Groupe;
+
 import com.orm.query.Condition;
 import com.orm.query.Select;
 
@@ -34,7 +36,7 @@ public class DetailsActivity extends AppCompatActivity {
         TextView sceneGroupe = findViewById(R.id.sceneTypeValue);
         sceneGroupe.setText(g.getScene());
 
-        TextView descriptionGroupe = findViewById(R.id.description);
+        JustifiedTextView descriptionGroupe = findViewById(R.id.description);
         descriptionGroupe.setText(g.getDescription() +
                 " \n \n" + "Pour plus d'informations : " + g.getSiteWeb());
 
