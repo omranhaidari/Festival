@@ -8,7 +8,7 @@ import android.os.Handler;
 
 public class Welcome extends AppCompatActivity {
 
-    public static int TIME_OUT = 3000;
+    public static int TIME_OUT = 2000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
