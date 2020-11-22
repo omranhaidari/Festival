@@ -1,14 +1,13 @@
 package com.example.festival;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SearchView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.festival.database.Groupe;
 import com.google.android.material.chip.Chip;
@@ -17,11 +16,12 @@ import com.orm.query.Select;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
+public class MainActivity extends AppCompatActivity {
 
     private SearchView searchView;
     private ListView listView;
     public static Groupe selectedGroup;
+    GroupAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         listView = findViewById(R.id.listViewGroups);
         searchView = findViewById(R.id.searchBar);
         List<Groupe> groups = Groupe.listAll(Groupe.class);
-        final GroupAdapter adapter = new GroupAdapter(MainActivity.this, groups);
+        adapter = new GroupAdapter(MainActivity.this, groups);
         listView.setAdapter(adapter);
         listView.setTextFilterEnabled(true);
         setupSearchView();
@@ -47,18 +47,28 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 startActivity(intent);
             }
         });
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                adapter.getFilter().filter(newText);
+                return false;
+            }
+        });
     }
 
     private void setupSearchView()
     {
         searchView.setIconifiedByDefault(false);
-        searchView.setOnQueryTextListener(this);
-        searchView.setSubmitButtonEnabled(true);
         searchView.setQueryHint("Rechercher un groupe");
     }
 
     public void sort(View view){
-        List<Groupe> groups = null;
+        List<Groupe> groups;
         Chip chipVendredi = findViewById(R.id.chipVendredi);
         Chip chipSamedi = findViewById(R.id.chipSamedi);
         Chip chipAcoustique = findViewById(R.id.chipAcoustique);
@@ -90,25 +100,10 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             groups = Select.from(Groupe.class).where(Condition.prop("jour").eq(day)).list();
         else if (sortByStage)
             groups = Select.from(Groupe.class).where(Condition.prop("scene").eq(stage)).list();
+        else
+            groups = Groupe.listAll(Groupe.class);
 
-        if (sortByDay || sortByStage){
-            final GroupAdapter adapter = new GroupAdapter(MainActivity.this, groups);
-            listView.setAdapter(adapter);
-        }
-    }
-
-    @Override
-    public boolean onQueryTextSubmit(String query) {
-        return false;
-    }
-
-    @Override
-    public boolean onQueryTextChange(String newText) {
-        if (TextUtils.isEmpty(newText)) {
-            listView.clearTextFilter();
-        } else {
-            listView.setFilterText(newText);
-        }
-        return true;
+        adapter = new GroupAdapter(MainActivity.this, groups);
+        listView.setAdapter(adapter);
     }
 }

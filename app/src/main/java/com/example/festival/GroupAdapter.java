@@ -1,12 +1,12 @@
 package com.example.festival;
 
-import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,9 +17,9 @@ import com.example.festival.database.Groupe;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GroupAdapter extends ArrayAdapter<Groupe> {
+public class GroupAdapter extends ArrayAdapter<Groupe> implements Filterable {
 
-    public List<Groupe> groups,orig;
+    public List<Groupe> groups;
 
     public GroupAdapter(Context context, List<Groupe> groups){
         super(context,0,groups);
@@ -62,11 +62,6 @@ public class GroupAdapter extends ArrayAdapter<Groupe> {
     }
 
     @Override
-    public long getItemId(int position) {
-        return position;
-    }
-
-    @Override
     public int getCount() {
         return groups.size();
     }
@@ -86,18 +81,17 @@ public class GroupAdapter extends ArrayAdapter<Groupe> {
             @Override
             protected FilterResults performFiltering(CharSequence constraint) {
                 final FilterResults oReturn = new FilterResults();
-                final List<Groupe> results = new ArrayList<Groupe>();
-                if (orig == null)
-                    orig = Groupe.listAll(Groupe.class);
-                if (constraint != null) {
-                    if (orig != null && orig.size() > 0) {
-                        for (final Groupe g : orig) {
-                            if (g.getNom().toLowerCase()
-                                    .contains(constraint.toString()))
+                final List<Groupe> results = new ArrayList<>();
+                List<Groupe> allGroups = Groupe.listAll(Groupe.class);
+                if (constraint != null && allGroups!=null) {
+                    if (allGroups.size() > 0) {
+                        for (final Groupe g : allGroups) {
+                            if (g.getNom().toLowerCase().contains(constraint.toString()))
                                 results.add(g);
                         }
                     }
                     oReturn.values = results;
+                    oReturn.count = results.size();
                 }
                 return oReturn;
             }
@@ -106,7 +100,14 @@ public class GroupAdapter extends ArrayAdapter<Groupe> {
             @Override
             protected void publishResults(CharSequence constraint, FilterResults results) {
                 groups = (List<Groupe>) results.values;
-                notifyDataSetChanged();
+                if (results.count > 0) {
+                    notifyDataSetChanged();
+                    clear();
+                    for (Groupe g : groups)
+                        add(g);
+                } else {
+                    notifyDataSetInvalidated();
+                }
             }
         };
     }
@@ -118,5 +119,4 @@ public class GroupAdapter extends ArrayAdapter<Groupe> {
     public static int getImageId(Context c, String ImageName) {
         return c.getResources().getIdentifier(ImageName, "drawable", c.getPackageName());
     }
-
 }
