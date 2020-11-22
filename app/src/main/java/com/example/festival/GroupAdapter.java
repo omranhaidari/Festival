@@ -6,17 +6,24 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Filter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+
 import com.example.festival.database.Groupe;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GroupAdapter extends ArrayAdapter<Groupe> {
 
+    public List<Groupe> groups,orig;
+
     public GroupAdapter(Context context, List<Groupe> groups){
         super(context,0,groups);
+        this.groups = groups;
     }
 
     @Override
@@ -39,6 +46,7 @@ public class GroupAdapter extends ArrayAdapter<Groupe> {
 
         Groupe group = getItem(position);
 
+        assert group != null;
         viewHolder.detailNom.setText(group.getNom());
         viewHolder.detailPhoto.setImageResource(getImageId(getContext(),group.getPhoto()));
         viewHolder.detailJour.setText(group.getJour());
@@ -53,12 +61,58 @@ public class GroupAdapter extends ArrayAdapter<Groupe> {
         return super.getItem(position);
     }
 
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public int getCount() {
+        return groups.size();
+    }
+
     private static class DetailViewHolder{
         public TextView detailNom;
         public ImageView detailPhoto;
         public TextView detailJour;
         public TextView detailHeure;
         public TextView detailScene;
+    }
+
+    @NonNull
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+                final FilterResults oReturn = new FilterResults();
+                final List<Groupe> results = new ArrayList<Groupe>();
+                if (orig == null)
+                    orig = Groupe.listAll(Groupe.class);
+                if (constraint != null) {
+                    if (orig != null && orig.size() > 0) {
+                        for (final Groupe g : orig) {
+                            if (g.getNom().toLowerCase()
+                                    .contains(constraint.toString()))
+                                results.add(g);
+                        }
+                    }
+                    oReturn.values = results;
+                }
+                return oReturn;
+            }
+
+            @SuppressWarnings("unchecked")
+            @Override
+            protected void publishResults(CharSequence constraint, FilterResults results) {
+                groups = (List<Groupe>) results.values;
+                notifyDataSetChanged();
+            }
+        };
+    }
+
+    public void notifyDataSetChanged() {
+        super.notifyDataSetChanged();
     }
 
     public static int getImageId(Context c, String ImageName) {

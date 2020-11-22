@@ -5,6 +5,6 @@
     <string name="samedi">Samedi</string>
     <string name="acoustique">Acoustique</string>
     <string name="amplifie">Amplifiée</string>
-    <string name="choisir_un_jour">Choisir un jour :</string>
-    <string name="choisir_une_scene">Choisir une scène :</string>
+    <string name="jour">Jour :</string>
+    <string name="scene">Scène :</string>
 </resources>
