@@ -93,7 +93,8 @@
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
                 android:layout_margin="12dp"
-                android:text="TextView" />
+                android:text="TextView"
+                android:autoLink="web"/>
         </LinearLayout>
 
     </LinearLayout>
