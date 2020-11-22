@@ -10,7 +10,7 @@ public class DataGenerator {
         coldplay.save();
         Groupe u2 = new Groupe("U2","u2","Vendredi","Amplifiée","21h","U2 est un groupe rock irlandais originaire de Dublin, formé en 1976.","www.u2.com",false);
         u2.save();
-        Groupe rammstein = new Groupe("Rammstein","rammstein","Vendredi","Amplifiée","22h45","Rammstein est un groupe de metal industriel allemand, originaire de Berlin.","www.rammstein.com",false);
+        Groupe rammstein = new Groupe("Rammstein","rammstein","Vendredi","Amplifiée","22h45","Rammstein est un groupe de metal industriel allemand, originaire de Berlin.","www.rammstein.com",true);
         rammstein.save();
 
         // VENDREDI - SALLE ACOUSTIQUE //
@@ -18,7 +18,7 @@ public class DataGenerator {
         indochine.save();
         Groupe pinkFloyd = new Groupe("Pink Floyd","pink_floyd","Vendredi","Acoustique","20h30","Pink Floyd est un groupe rock britannique originaire de Londres en Angleterre.","www.pinkfloyd.com",false);
         pinkFloyd.save();
-        Groupe beatles = new Groupe("The Beatles","beatles","Vendredi","Acoustique","22h","The Beatles est un groupe de pop et de rock'n'roll, originaire de Liverpool, en Angleterre.","www.thebeatles.com",false);
+        Groupe beatles = new Groupe("The Beatles","beatles","Vendredi","Acoustique","22h","The Beatles est un groupe de pop et de rock'n'roll, originaire de Liverpool, en Angleterre.","www.thebeatles.com",true);
         beatles.save();
 
         // SAMEDI - SALLE AMPLIFIEE //
@@ -30,7 +30,7 @@ public class DataGenerator {
         daftPunk.save();
 
         // SAMEDI - SALLE ACOUSTIQUE //
-        Groupe nirvana = new Groupe("Nirvana","nirvana","Samedi","Acoustique","19h","Nirvana est un groupe de grunge américain, originaire d'Aberdeen, dans l'État de Washington.","www.nirvana.com",false);
+        Groupe nirvana = new Groupe("Nirvana","nirvana","Samedi","Acoustique","19h","Nirvana est un groupe de grunge américain, originaire d'Aberdeen, dans l'État de Washington.","www.nirvana.com",true);
         nirvana.save();
         Groupe muse = new Groupe("Muse","muse","Samedi","Acoustique","20h45","Muse est un groupe de rock britannique, originaire de Teignmouth, dans le Devon, en Angleterre.","www.muse.mu",false);
         muse.save();

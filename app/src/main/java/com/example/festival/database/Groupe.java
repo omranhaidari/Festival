@@ -54,6 +54,10 @@ public class Groupe extends SugarRecord {
         return siteWeb;
     }
 
+    public void setEstFavori(boolean estFavori){
+        this.estFavori = estFavori;
+    }
+
     public boolean estFavori() {
         return estFavori;
     }

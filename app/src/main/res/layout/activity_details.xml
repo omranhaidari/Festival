@@ -7,95 +7,112 @@
     tools:context=".DetailsActivity">
 
     <LinearLayout
+        android:id="@+id/line2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp">
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/groupName"
-            android:layout_width="match_parent"
-            android:layout_height="58dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:gravity="center"
-            android:layout_marginTop="20sp"
-            android:textStyle="bold"
-            android:textSize="40dp"
-            android:text="TextView" />
+            android:textSize="35sp"
+            android:layout_weight="1"
+            android:textStyle="bold" />
 
-        <ImageView
-            android:id="@+id/groupImage"
-            android:layout_width="match_parent"
-            android:layout_height="350dp"
-            tools:srcCompat="@tools:sample/avatars" />
+        <ImageButton
+            android:id="@+id/imageButtonFav"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            android:padding="7dp"
+            android:onClick="favoris"
+            android:background="@null"
+            app:srcCompat="@drawable/not_favoris" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/groupImage"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/line2"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/groupImage">
 
         <LinearLayout
+            android:id="@+id/a"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:id="@+id/a"
-                android:layout_width="match_parent"
-                android:layout_height="44dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/timetable"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:textStyle="bold"
-                    android:textSize="20dp"
-                    android:text="Horaire" />
-
-                <TextView
-                    android:id="@+id/timetableValue"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:textSize="17dp"
-                    android:text="TextView" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/v"
-                android:layout_width="match_parent"
-                android:layout_height="49dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/sceneType"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:textStyle="bold"
-                    android:textSize="20dp"
-                    android:text="Scène" />
-
-                <TextView
-                    android:id="@+id/sceneTypeValue"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:textSize="17dp"
-                    android:text="TextView" />
-            </LinearLayout>
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/description"
+                android:id="@+id/timetable"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:layout_margin="12dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Horaire"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/timetableValue"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
                 android:text="TextView"
-                android:autoLink="web"/>
+                android:textSize="17sp" />
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/v"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/sceneType"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Scène"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/sceneTypeValue"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="TextView"
+                android:textSize="17sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="12dp"
+            android:autoLink="web"
+            android:gravity="center_vertical"
+            android:text="TextView" />
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,6 +2,7 @@ package com.example.festival;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -103,6 +104,12 @@ public class MainActivity extends AppCompatActivity {
         else
             groups = Groupe.listAll(Groupe.class);
 
+        adapter = new GroupAdapter(MainActivity.this, groups);
+        listView.setAdapter(adapter);
+    }
+
+    public void showFavoris (View view){
+        List<Groupe> groups = Select.from(Groupe.class).where(Condition.prop("est_favori").eq(1)).list();
         adapter = new GroupAdapter(MainActivity.this, groups);
         listView.setAdapter(adapter);
     }
