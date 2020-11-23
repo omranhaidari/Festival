@@ -6,11 +6,34 @@ public class DataGenerator {
 
     public static void fillDatabase(){
         // VENDREDI - SALLE AMPLIFIEE //
-        Groupe coldplay = new Groupe("Coldplay","coldplay","Vendredi","Amplifiée","19h15","Coldplay est un groupe britannique créé en 1996.","www.coldplay.com",false);
+        Groupe coldplay = new Groupe("Coldplay",
+                "coldplay",
+                "Vendredi",
+                "Amplifiée",
+                "19h15",
+                "   Coldplay est un groupe britannique créé en 1996. " +
+                        "Il est formé par l'auteur-compositeur-interprète Chris Martin et le " +
+                        "guitariste Jon Buckland. Le bassiste Guy Berryman rejoint ensuite le groupe, " +
+                        "avant que le batteur Will Champion ne vienne compléter le quatuor. " +
+                        "Avec huit albums studio, Coldplay est l'un des plus grands groupes à " +
+                        "succès du nouveau millénaire, avec plus de 90 millions de disques vendus à " +
+                        "travers le monde."
+                ,"www.coldplay.com",
+                false);
         coldplay.save();
-        Groupe u2 = new Groupe("U2","u2","Vendredi","Amplifiée","21h","U2 est un groupe rock irlandais originaire de Dublin, formé en 1976.","www.u2.com",false);
+        Groupe u2 = new Groupe("U2",
+                "u2",
+                "Vendredi",
+                "Amplifiée",
+                "21h",
+                "   U2 est un groupe rock irlandais originaire de Dublin, formé en 1976. " +
+                        "Il est composé de Bono au chant et occasionnellement à la guitare ; The Edge" +
+                        " à la guitare, au piano et au chant ; Adam Clayton à la basse ; et Larry Mullen Jr. " +
+                        "à la batterie. Depuis les années 1980, U2 s'impose comme un groupe majeur sur la scène mondiale.",
+                "www.u2.com",
+                false);
         u2.save();
-        Groupe rammstein = new Groupe("Rammstein","rammstein","Vendredi","Amplifiée","22h45","Rammstein est un groupe de metal industriel allemand, originaire de Berlin.","www.rammstein.com",true);
+        Groupe rammstein = new Groupe("Rammstein","rammstein","Vendredi","Amplifiée","22h45","Rammstein est un groupe de metal industriel allemand, originaire de Berlin.","www.rammstein.com",false);
         rammstein.save();
 
         // VENDREDI - SALLE ACOUSTIQUE //
@@ -18,7 +41,7 @@ public class DataGenerator {
         indochine.save();
         Groupe pinkFloyd = new Groupe("Pink Floyd","pink_floyd","Vendredi","Acoustique","20h30","Pink Floyd est un groupe rock britannique originaire de Londres en Angleterre.","www.pinkfloyd.com",false);
         pinkFloyd.save();
-        Groupe beatles = new Groupe("The Beatles","beatles","Vendredi","Acoustique","22h","The Beatles est un groupe de pop et de rock'n'roll, originaire de Liverpool, en Angleterre.","www.thebeatles.com",true);
+        Groupe beatles = new Groupe("The Beatles","beatles","Vendredi","Acoustique","22h","The Beatles est un groupe de pop et de rock'n'roll, originaire de Liverpool, en Angleterre.","www.thebeatles.com",false);
         beatles.save();
 
         // SAMEDI - SALLE AMPLIFIEE //
@@ -30,7 +53,7 @@ public class DataGenerator {
         daftPunk.save();
 
         // SAMEDI - SALLE ACOUSTIQUE //
-        Groupe nirvana = new Groupe("Nirvana","nirvana","Samedi","Acoustique","19h","Nirvana est un groupe de grunge américain, originaire d'Aberdeen, dans l'État de Washington.","www.nirvana.com",true);
+        Groupe nirvana = new Groupe("Nirvana","nirvana","Samedi","Acoustique","19h","Nirvana est un groupe de grunge américain, originaire d'Aberdeen, dans l'État de Washington.","www.nirvana.com",false);
         nirvana.save();
         Groupe muse = new Groupe("Muse","muse","Samedi","Acoustique","20h45","Muse est un groupe de rock britannique, originaire de Teignmouth, dans le Devon, en Angleterre.","www.muse.mu",false);
         muse.save();
