@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBlack"
+    android:background="@drawable/festival"
     tools:context=".Welcome"
     android:layout_gravity="center"
     android:gravity="center"
@@ -15,16 +15,10 @@
         android:layout_height="wrap_content"
         android:text="@string/titleProgressBar"
         android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="45dp"
+        android:textColor="#000000"
+        android:textSize="40dp"
         android:textStyle="bold"
-        android:layout_marginBottom="100dp"/>
-
-    <ImageView
-        android:id="@+id/imageFestival"
-        android:layout_width="wrap_content"
-        android:layout_height="239dp"
-        android:src="@drawable/festival" />
+        android:layout_marginBottom="400dp"/>
 
     <ProgressBar
         android:id="@+id/progressBar"
