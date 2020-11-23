@@ -29,12 +29,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        DataGenerator.cleanDatabase();
-        DataGenerator.fillDatabase();
+        List<Groupe> groups = Groupe.listAll(Groupe.class);
+        if (groups.size() == 0){
+            DataGenerator.cleanDatabase();
+            DataGenerator.fillDatabase();
+        }
 
         listView = findViewById(R.id.listViewGroups);
         searchView = findViewById(R.id.searchBar);
-        List<Groupe> groups = Groupe.listAll(Groupe.class);
         adapter = new GroupAdapter(MainActivity.this, groups);
         listView.setAdapter(adapter);
         listView.setTextFilterEnabled(true);
