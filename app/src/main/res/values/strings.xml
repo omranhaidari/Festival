@@ -7,4 +7,7 @@
     <string name="amplifie">Amplifiée</string>
     <string name="jour">Jour :</string>
     <string name="scene">Scène :</string>
+    <string name="notification_channel_id">Canal</string>
+    <string name="notification_channel_title">Titre</string>
+    <string name="notification_channel_description">Description</string>
 </resources>

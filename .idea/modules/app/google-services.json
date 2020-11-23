@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "556817566866",
+    "firebase_url": "https://festival-ef04a.firebaseio.com",
+    "project_id": "festival-ef04a",
+    "storage_bucket": "festival-ef04a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:556817566866:android:9d0ca437cc219b76b72a4b",
+        "android_client_info": {
+          "package_name": "com.example.festival"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "556817566866-9d6t82au7chht1s3j3mg07eomfpjkegj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.festival",
+            "certificate_hash": "ca3cbcc6d34a8baa0f08a01c2bf651cf027720f1"
+          }
+        },
+        {
+          "client_id": "556817566866-m69ipuk3dk4n2rvchu6c1d92jtbbgdmn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdZqLMxrgOqOjeBm87XieEnZnwvdZkTC4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "556817566866-m69ipuk3dk4n2rvchu6c1d92jtbbgdmn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
