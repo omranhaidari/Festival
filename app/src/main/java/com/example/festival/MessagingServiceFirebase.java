@@ -49,7 +49,7 @@ public class MessagingServiceFirebase extends com.google.firebase.messaging.Fire
             notificationBuilder.setChannelId(channelId);
         }
 
-        // Redirection vers l'application (écran de chargement)
+        // Redirection vers l'application (écran de chargement) lors du clic dessus
         Intent intent = new Intent(getApplicationContext(), SplashScreen.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0,  intent, 0);
 
