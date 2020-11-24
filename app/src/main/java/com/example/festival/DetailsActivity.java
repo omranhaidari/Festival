@@ -2,6 +2,7 @@ package com.example.festival;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
@@ -19,6 +20,7 @@ public class DetailsActivity extends AppCompatActivity {
     private ImageView favIcon;
     private Groupe g = MainActivity.selectedGroup;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,21 +44,27 @@ public class DetailsActivity extends AppCompatActivity {
 
         favIcon = findViewById(R.id.imageButtonFav);
 
+        // Si le groupe fait partie des favoris, une étoile colorée en jaune est affichée.
+        // Sinon c'est une étoile grise pour indiquer que le groupe n'est pas dans les favoris.
         if (g.estFavori()){
             favIcon.setImageResource(getImageId(this, "is_favoris"));
         }
     }
 
+    // Permets de récupérer l'id d'une image présente dans le dossier "res.drawable" de l'application
     public static int getImageId(Context c, String ImageName) {
         return c.getResources().getIdentifier(ImageName, "drawable", c.getPackageName());
     }
 
+    // Lorsque le bouton d'ajout aux favoris est sélectionné, cette fonction est appelée.
     public void favoris(View view){
+        // Si le groupe est déjà dans les favoris, on le retire et on change l'image du bouton.
         if (g.estFavori()){
             g.setEstFavori(false);
             g.save();
             favIcon.setImageResource(getImageId(this, "not_favoris"));
         }
+        // Sinon on l'ajoute et on change l'image du bouton.
         else{
             g.setEstFavori(true);
             g.save();

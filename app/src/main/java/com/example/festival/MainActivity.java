@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Vérifie si la base de données à déjà été initialiser ou pas.
         List<Groupe> groups = Groupe.listAll(Groupe.class);
         if (groups.size() == 0){
             DataGenerator.cleanDatabase();
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         listView.setTextFilterEnabled(true);
         setupSearchView();
 
+        // Rend les éléments de la liste cliquable
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -51,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Lorsque du texte est inséré dans la barre de recherche, la liste est automatiquement filtée
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -70,6 +73,8 @@ public class MainActivity extends AppCompatActivity {
         searchView.setQueryHint("Rechercher un groupe");
     }
 
+
+    // Permets de filtrer les éléments de la liste lorsqu'un bouton de tri est séléctionné
     public void sort(View view){
         List<Groupe> groups;
         Chip chipVendredi = findViewById(R.id.chipVendredi);
@@ -81,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
         String day = null;
         String stage = null;
 
+        // Si l'utilisateur veut trier par jour
         if (chipVendredi.isChecked() || chipSamedi.isChecked()){
             sortByDay = true;
             if (chipVendredi.isChecked())
@@ -89,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
                 day = "Samedi";
         }
 
+        // Si l'utilisateur veut trier par scène
         if (chipAcoustique.isChecked() || chipAmplifiee.isChecked()){
             sortByStage = true;
             if (chipAcoustique.isChecked())
@@ -97,6 +104,7 @@ public class MainActivity extends AppCompatActivity {
                 stage = "Amplifiée";
         }
 
+        // Récupération des groupes en fonction des critères choisis par l'utilisateur
         if(sortByDay && sortByStage)
             groups = Select.from(Groupe.class).where(Condition.prop("jour").eq(day),Condition.prop("scene").eq(stage)).list();
         else if(sortByDay)
@@ -110,8 +118,16 @@ public class MainActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
     }
 
+    // Affichage dans la liste des éléments ajoutés aux favoris seulement
     public void showFavoris (View view){
         List<Groupe> groups = Select.from(Groupe.class).where(Condition.prop("est_favori").eq(1)).list();
+        adapter = new GroupAdapter(MainActivity.this, groups);
+        listView.setAdapter(adapter);
+    }
+
+    // Enlève tous les filtres et affiche la liste complète des groupes
+    public void clearFilter(View view){
+        List<Groupe> groups = Groupe.listAll(Groupe.class);
         adapter = new GroupAdapter(MainActivity.this, groups);
         listView.setAdapter(adapter);
     }

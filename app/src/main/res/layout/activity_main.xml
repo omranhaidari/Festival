@@ -24,7 +24,19 @@
                 android:layout_height="wrap_content"
                 android:iconifiedByDefault="false"
                 android:layout_weight="1"
-                android:queryHint="Rechercher..." />
+                android:queryHint="Rechercher..." >
+
+            </SearchView>
+
+            <ImageButton
+                android:id="@+id/imageButton3"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/clear_filter"
+                android:scaleType="fitCenter"
+                android:padding="5dp"
+                android:onClick="clearFilter"
+                android:background="@null" />
 
             <ImageButton
                 android:id="@+id/imageButton2"
